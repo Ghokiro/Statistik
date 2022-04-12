@@ -37,7 +37,7 @@ const Formulario = () => {
       onSubmit={handleSubmit}
     >
       { error && <Error>Debes digitar los valores tipo numéricos y elegir la medida</Error>  }
-      { calculo === "Error" && <Error>Solo están permitidos la introducción de caracteres numéricos, puntos (para decimales) y comas (para separar los valores)</Error>  }
+      { calculo === "Error" && <Error>Solo está permitido la introducción de caracteres numéricos y símbolos de punto (para decimales) y coma (para separar los valores)</Error>  }
       <div>
         <label
             className='font-bold text-lg  block'

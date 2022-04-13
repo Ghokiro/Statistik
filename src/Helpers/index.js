@@ -15,7 +15,7 @@ const fnMedia = value => {
     
     if ( separar.includes(NaN) ) return "Error" 
     
-    const calcular = separar.reduce( (a, b) => a + b , 0 ) / separar.length
+    const calcular = (separar.reduce( (a, b) => a + b , 0 ) / separar.length).toFixed(2)
     return calcular
 
 }

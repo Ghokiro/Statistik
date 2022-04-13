@@ -27,7 +27,7 @@ const Formulario = () => {
       setBtnCalcular(false)
       setSpinner(false)
       obtenerCalculo()
-    }, 3000)
+    }, 2000)
       
   }
  
@@ -52,7 +52,7 @@ const Formulario = () => {
       </div>
 
       <div className='my-4'>
-        <p className='font-bold text-slate-700 mb-2'>Elije tipo de Cálculo:</p>
+        <p className='font-bold text-slate-700 mb-2'>Elije tipo de Medida:</p>
         <div className='flex gap-5'>
           { tipoCalculo.map( elemento => (
             <Fragment key={elemento.id}>

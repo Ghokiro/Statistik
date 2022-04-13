@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { fnMedia, fnMediana } from "../Helpers";
+import { fnMedia, fnMediana, fnModa } from "../Helpers";
 
 const MedidasContext = createContext()
 
@@ -14,17 +14,23 @@ const MedidasProvider = ({children}) => {
     const [ calculo, setCalculo ] = useState("")
     const [ spinner, setSpinner] = useState(false)
     const [ btnCalcular, setBtnCalcular] = useState(false)
+    const [ tipoMedida, setTipoMedida ] = useState("") 
 
     const obtenerCalculo = () => {
         const {texto, medida} = datos;
 
         if ( medida === "1") {
             setCalculo(fnMedia(texto))
+            setTipoMedida("Media:")
             return;
         }
-
-        setCalculo(fnMediana(texto))
-       
+        if ( medida === "2" ) {
+            setCalculo(fnMediana(texto))
+            setTipoMedida("Mediana:")
+            return;
+        }
+        setCalculo(fnModa(texto))
+        setTipoMedida("Moda:")
     }
 
 
@@ -50,7 +56,9 @@ const MedidasProvider = ({children}) => {
                 spinner,
                 setSpinner,
                 btnCalcular,
-                setBtnCalcular
+                setBtnCalcular,
+                setTipoMedida,
+                tipoMedida
             }}
         >
             {children}

@@ -9,7 +9,7 @@ const fnSeparar = (value) => {
 
 
 
-const fnMedia = (value) => { 
+const fnMedia = value => { 
 
     const separar = fnSeparar(value);  
     
@@ -20,7 +20,7 @@ const fnMedia = (value) => {
 
 }
 
-const fnMediana = (value) => { 
+const fnMediana = value => { 
     const separar = fnSeparar(value);  
 
     if ( separar.includes(NaN) ) return "Error" 
@@ -40,8 +40,29 @@ const fnMediana = (value) => {
     
 }
 
+const fnModa = value => {
+    const separar = fnSeparar(value);
+    let moda = {}
+    const setModa = separar.map( x => moda[x] = (moda[x] || 0) + 1  );
+    
+    let modaValue = Object.values( moda )
+    let modaKey = Object.keys( moda )
+
+    const modaMax = Math.max( ...modaValue )  
+
+    if ( modaValue.every( x=> x === modaValue[0]) ) 
+        return "No hay Moda"    
+
+    const resultado = (modaKey.filter( x => moda[x] === modaMax ))   
+
+    const getModa =  resultado.join(", ")
+
+    return getModa
+}
+
 
 export {
     fnMedia,
-    fnMediana
+    fnMediana,
+    fnModa
 }

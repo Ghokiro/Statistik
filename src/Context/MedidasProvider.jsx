@@ -4,7 +4,7 @@ import { fnMedia, fnMediana, fnModa } from "../Helpers";
 const MedidasContext = createContext()
 
 const MedidasProvider = ({children}) => {
-
+    //hooks de useState
     const [ datos, setDatos ] = useState({
         texto: '',
         medida: ''
@@ -16,11 +16,14 @@ const MedidasProvider = ({children}) => {
     const [ btnCalcular, setBtnCalcular] = useState(false)
     const [ tipoMedida, setTipoMedida ] = useState("") 
 
+    //Selecciona típo de medida
     const obtenerCalculo = () => {
         const {texto, medida} = datos;
 
         if ( medida === "1") {
+            //almacena los valores numéricos en el hook para luego realizar los cálculos
             setCalculo(fnMedia(texto))
+            //Nombre de típo de medida para presentarlo en la web
             setTipoMedida("Media:")
             return;
         }
@@ -35,7 +38,7 @@ const MedidasProvider = ({children}) => {
 
 
     const evaluarDatos = ( value ) => {
-        
+        //Almacenar datos en el objecto del hook de Datos
         setDatos({
             ...datos,
             [value.target.name] : value.target.value
@@ -45,6 +48,7 @@ const MedidasProvider = ({children}) => {
     }
 
     return (
+        //Contenedor que exporta todos los hooks y funciones creados en este archivo
         <MedidasContext.Provider
             value={{
                 datos, 

@@ -1,5 +1,5 @@
-import React from 'react'
 
+//Mensaje de Error
 const Error = ({children}) => {
   return (
     <div className='mb-3 text-center bg-red-100 border-2 border-red-400 py-2 text-red-700'>

@@ -1,6 +1,7 @@
 import "../Styles/style.css"
 
 const Spinner = () => {
+  // Spinner o ícono de carga
   return (
     <div className="spinner">
         <div className="double-bounce1"></div>
